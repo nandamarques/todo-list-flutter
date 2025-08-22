@@ -218,7 +218,13 @@ class _TodoListScreenState extends State<TodoListScreen> {
           children: [
             FloatingActionButton(
               heroTag: "deletedBtn",
-              onPressed: _clearAllTasks,
+              onPressed: () {
+                _clearAllTasks();
+
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Todos os itens removidos')),
+              );
+              },
               backgroundColor: Colors.red,
               child: const Icon(Icons.delete),
             ),
